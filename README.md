@@ -48,9 +48,5 @@ Roadmap
 
 Contributing
 Please read CONTRIBUTING.md for development guidelines, code style, and PR process.
-
-License
-This project is intended to be distributed under the MIT License. Add a LICENSE file at the repository root to make this official.
-
-Contact
-Owner: gokulrajmisox — contributions, issues, and PRs are welcome.
+⚖️ License
+Distributed under the MIT License. Developed with absolute pride to empower the traditional weavers of Tamil Nadu. ❤️
