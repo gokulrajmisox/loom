@@ -49,7 +49,8 @@ Make sure you have [Node.js](https://nodejs.org/) installed to spin up the local
 ### 1. Clone the Repository
 ```bash
 git clone [https://github.com/gokulrajmisox/artisan-loom-marketplace.git](https://github.com/gokulrajmisox/artisan-loom-marketplace.git)
-cd artisan-loom-marketplace
+cd artisan-loom-marketplace[80c37857-99b2-4209-961f-8ac7fbad89b8.bmp](https://github.com/user-attachments/files/30149610/80c37857-99b2-4209-961f-8ac7fbad89b8.bmp)
+
     
 2. Install Project Dependencies
 Initialize the local tooling setup:
