@@ -1,0 +1,357 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="neydhal">
+<head>
+  <meta charset="utf-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Artisan Loom Marketplace</title>
+  
+  <!-- Material Symbols Outlined icons -->
+  <link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&display=swap" rel="stylesheet">
+  
+  <!-- Main Stylesheet -->
+  <link href="./index.css" rel="stylesheet">
+</head>
+<body>
+
+  <!-- Top App Navigation Bar (Desktop) -->
+  <header class="top-header">
+    <div class="container top-header-content">
+      <div class="logo">Neydhal</div>
+      
+      <div class="nav-links">
+        <a class="nav-item active" data-view="home" href="#" data-translate="home">Home</a>
+        <a class="nav-item" data-view="orders" href="#" data-translate="orders">Orders</a>
+        <a class="nav-item" data-view="weavers" href="#" data-translate="weavers">Weavers</a>
+        <a class="nav-item" data-view="cart" href="#" data-translate="cart">Cart</a>
+        <span class="material-symbols-outlined icon-button" style="font-size: 28px; cursor: pointer;">account_circle</span>
+      </div>
+    </div>
+  </header>
+
+  <!-- Mobile Top Header -->
+  <header class="mobile-header">
+    <div class="mobile-logo">Neydhal</div>
+    <span class="material-symbols-outlined icon-button" style="font-size: 28px;">account_circle</span>
+  </header>
+
+  <!-- Notification Toast Container -->
+  <div id="toast-container" class="toast-container"></div>
+
+  <!-- Voice Search Modal Overlay -->
+  <div id="voice-search-modal" class="voice-modal-overlay">
+    <div class="voice-modal">
+      <div class="voice-mic-glow">
+        <span class="material-symbols-outlined" style="font-size: 40px;">mic</span>
+      </div>
+      <div id="voice-status-text" class="voice-status">Listening...</div>
+      <p style="font-size: 0.8rem; color: var(--on-surface-variant);" data-translate="voice_modal_hint">Say "Kanchipuram Saree" or "Arulmozhi Weaver"</p>
+      <button class="btn btn-secondary" onclick="document.getElementById('voice-search-modal').classList.remove('open')">Cancel</button>
+    </div>
+  </div>
+
+  <!-- Cart Drawer Overlay -->
+  <div id="cart-drawer-overlay" class="cart-drawer-overlay" onclick="toggleCartDrawer(false)"></div>
+  <!-- Cart Drawer panel -->
+  <div id="cart-drawer" class="cart-drawer">
+    <div class="cart-header">
+      <h3 style="font-size:1.2rem; display:flex; align-items:center; gap:8px;">
+        <span class="material-symbols-outlined">shopping_cart</span>
+        <span data-translate="cart">Cart</span>
+      </h3>
+      <button class="icon-button" onclick="toggleCartDrawer(false)">
+        <span class="material-symbols-outlined">close</span>
+      </button>
+    </div>
+    <div id="cart-items-container" class="cart-items-wrapper">
+      <!-- Dynamic list from JS -->
+    </div>
+    <div id="cart-footer-wrapper" class="cart-footer">
+      <!-- Checkout actions from JS -->
+    </div>
+  </div>
+
+  <!-- MAIN APP CONTENTS -->
+  <main class="container" style="margin-top: 24px;">
+
+    <!-- ==================== VIEW 1: HOME ==================== -->
+    <div id="view-home" class="view-section active">
+      <!-- Hero Banner Banner -->
+      <section class="hero-banner">
+        <div class="hero-overlay">
+          <h1 id="welcome-text" class="hero-title">Welcome to Neydhal</h1>
+          <h2 class="hero-subtitle">நெய்தலுக்கு உங்களை வரவேற்கிறோம்</h2>
+        </div>
+        <div class="hero-bg" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuCuiKCRuYt8IyYZkX_wkY3ML0cEDvAh8GeTkKhZzA6HAX9mIIaSe9Ur950iutwTHSXL75zXkrMScUxOqpLSI03QmJEn1GPsRY9HxMEJyk0VHaYrfu9M4XtgUqWwgyx_RV6ou2PXwEwFLNOtEn0CCz7YdRZOVL4dmNJvP5fVHmoIg9-7pgIx0-k-msTpX70N6BUSMT5j2WR8OPiH47yEIQYS7oXr8eGq_SBVXAwo1sa-sxsjTi2XcWCb0ITcMM-mj08YoKg899IjiCw');"></div>
+      </section>
+
+      <!-- Search & Filters -->
+      <section class="search-wrapper">
+        <div class="search-bar">
+          <span class="material-symbols-outlined" style="color: var(--on-surface-variant); opacity: 0.6; margin-left: 12px;">search</span>
+          <input class="search-input" type="text" data-translate-placeholder="search_placeholder" placeholder="Search sarees, weavers, regions...">
+          <button class="btn btn-primary" onclick="triggerVoiceSearch()" style="border-radius: var(--border-radius-sm);">
+            <span class="material-symbols-outlined" style="font-size: 18px;">mic</span>
+            <span class="nav-label" style="margin-left: 4px;" data-translate="voice_search_btn">Voice Search</span>
+          </button>
+        </div>
+      </section>
+
+      <!-- Category Filter Chips -->
+      <section class="section-gap" style="display:flex; justify-content:center; gap:12px; flex-wrap:wrap; margin-top:-8px;">
+        <button class="btn category-chip active btn-primary" data-category="all" onclick="selectCategory('all')">All Weaves</button>
+        <button class="btn category-chip btn-secondary" data-category="kanchipuram" onclick="selectCategory('kanchipuram')">Kanchipuram Silk</button>
+        <button class="btn category-chip btn-secondary" data-category="salem" onclick="selectCategory('salem')">Salem Cotton</button>
+        <button class="btn category-chip btn-secondary" data-category="arni" onclick="selectCategory('arni')">Arni Saree</button>
+        <button class="btn category-chip btn-secondary" data-category="sungudi" onclick="selectCategory('sungudi')">Sungudi</button>
+      </section>
+
+      <!-- Explore Bento Grid -->
+      <section class="section-gap">
+        <h2 style="font-size: 1.6rem; margin-bottom: 20px; display:flex; flex-direction:column;">
+          <span data-translate="explore_heritage">Explore Heritage</span>
+          <span style="font-size:0.9rem; font-weight:400; color:var(--on-surface-variant); margin-top:2px;" data-translate="explore_sub">Discover ancient weaves and textile art</span>
+        </h2>
+        <div class="bento-grid">
+          <div class="bento-card" onclick="selectCategory('kanchipuram')">
+            <div class="bento-card-bg" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuDRhch9vr2iWvvM2FjgUCmXMu1lekOqTgu5_wRkQkGtFciVUfsA2T9Zqt0uenuw4RWAbUh5snu0ybON0fZBJYXforhSJ1GTUizf8RSNO_HsAjVNduhJIVaGoH_Qrg_2Y_gjsr15Xmuwdi0jxdH6S1OKro-vh1aXmnE9RWtivC4WyV1fCGUgeY9--71DoReOhP5uI-ps1wfTC0uirDPqwLOtKhtErFXFdHqOFIkpnbXr0pkqNoPppWsw6LEJ-lln-IYVSoH-EMjdFng');"></div>
+            <div class="bento-card-overlay"><span class="bento-card-title">Kanchipuram Silk</span></div>
+          </div>
+          <div class="bento-card" onclick="selectCategory('salem')">
+            <div class="bento-card-bg" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuByAm9TAr91sTf5ofY0fFXxQ4bgMYWBsU3Va8iHNV4cuZkFoc_JjXDn2kIsPEYCJp5PZdekTMOwRZ0HCph3qaQo84hF3Y7iiPmcBhuGopZvgAzP15hXJUMLyKIvu_jnehGVS6OPV5n_OtfqV5g61uQFP_SfLhFJIW_Iw7fnP9OY8LwtNvO1YjoE0ZfBgKxiZynmKCFnpT9l2-XopotVBmrSM9PXn9DNOobBqpWzNER6waG8r73oqRqSYVDN7jNsMub4dcy36cWqyow');"></div>
+            <div class="bento-card-overlay"><span class="bento-card-title">Salem Cotton</span></div>
+          </div>
+          <div class="bento-card" onclick="selectCategory('arni')">
+            <div class="bento-card-bg" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuBkBvf7lAmwurH_7N6NJ9QdMg_brIpoV9PrkLGM2byiJdzoXGqXFiYkoxabhEeZME_HXs6r8bzcDH2PVLdlw3gah1upybB5fzQbdFI1w6xVlB7FLchuLqX1-Fvh-hT-CHgjMAptz6-nVJwMTm4rbDXB8sUwSiQ7k4DyFqXgX9LAxLzp9QQq7oZIhZRvGyUlBTZFBj6lkuU7sJDfdPijoPZxT1zWfp4IX0zCJ3Au6MCHisDnUXPXDH2ZjbTC11KQnOKGnBkSE0vCpEQ');"></div>
+            <div class="bento-card-overlay"><span class="bento-card-title">Arni Saree</span></div>
+          </div>
+          <div class="bento-card" onclick="selectCategory('sungudi')">
+            <div class="bento-card-bg" style="background-image: url('https://lh3.googleusercontent.com/aida-public/AB6AXuB4tuDpo0NtjUhvGVO8VrgWq6K6ScarmiXI5Pf5RoA_bj-Ui3BAMZZY_Rlo90xLdIB8g7r0n2xNAu00LKNypl5xo2Z2AW4peGJNGX8BuynNSOwDlQPnN23BW_2j0WLTs8BRGMrklOufj2uTgLCeE7Pg1dATEahk-tpqz3U6913xln_kIugPih0YNNPHokCP9IJsm-THy2Bmtx5_vLlwZTKVeNMLylPIqfngtMU7njKfTUnqEKtnG4auOgNAv5599tNGkW1nces2iUM');"></div>
+            <div class="bento-card-overlay"><span class="bento-card-title">Sungudi</span></div>
+          </div>
+        </div>
+      </section>
+
+      <div class="heritage-divider"></div>
+
+      <!-- Products Grid -->
+      <section class="section-gap">
+        <h2 style="font-size: 1.6rem; margin-bottom: 20px; display:flex; flex-direction:column;">
+          <span>Featured Masterpieces</span>
+          <span style="font-size:0.9rem; font-weight:400; color:var(--on-surface-variant); margin-top:2px;">Handwoven, authenticated traditional sarees</span>
+        </h2>
+        <div id="home-products-list" class="card-container">
+          <!-- Rendered dynamically by JS -->
+        </div>
+      </section>
+
+      <!-- Weavers List -->
+      <section class="section-gap" style="margin-top: 40px;">
+        <h2 style="font-size: 1.6rem; margin-bottom: 20px; display:flex; flex-direction:column;">
+          <span data-translate="weavers_near_you">Weavers Near You</span>
+          <span style="font-size:0.9rem; font-weight:400; color:var(--on-surface-variant); margin-top:2px;" data-translate="weavers_sub">Connect with local artisans directly</span>
+        </h2>
+        <div id="home-weavers-list" class="card-container">
+          <!-- Rendered dynamically by JS -->
+        </div>
+      </section>
+      
+      <!-- Empty state -->
+      <div id="home-empty-state" style="display:none; text-align:center; padding:40px 20px; color:var(--on-surface-variant);" data-translate="search_empty">
+        No products or weavers found matching your search.
+      </div>
+    </div>
+
+
+    <!-- ==================== VIEW 2: PRODUCT DETAILS ==================== -->
+    <div id="view-product" class="view-section">
+      <div class="back-bar">
+        <button class="back-btn" onclick="navigateBack()">
+          <span class="material-symbols-outlined">arrow_back</span>
+        </button>
+        <span style="font-weight:600; text-transform:uppercase; letter-spacing:0.05em; font-size:0.88rem;" data-translate="view_details">View Details</span>
+      </div>
+      
+      <div id="product-details-content">
+        <!-- Rendered dynamically by JS -->
+      </div>
+    </div>
+
+
+    <!-- ==================== VIEW 3: WEAVER PROFILE ==================== -->
+    <div id="view-weaver" class="view-section">
+      <div class="back-bar">
+        <button class="back-btn" onclick="navigateBack()">
+          <span class="material-symbols-outlined">arrow_back</span>
+        </button>
+        <span style="font-weight:600; text-transform:uppercase; letter-spacing:0.05em; font-size:0.88rem;" data-translate="view_profile_btn">View Profile</span>
+      </div>
+
+      <div id="weaver-profile-content">
+        <!-- Rendered dynamically by JS -->
+      </div>
+    </div>
+
+
+    <!-- ==================== VIEW 4: SECURE CHECKOUT ==================== -->
+    <div id="view-checkout" class="view-section">
+      <div class="back-bar">
+        <button class="back-btn" onclick="navigateBack()">
+          <span class="material-symbols-outlined">arrow_back</span>
+        </button>
+        <span style="font-weight:600; text-transform:uppercase; letter-spacing:0.05em; font-size:0.88rem;" data-translate="checkout_title">Checkout</span>
+      </div>
+
+      <form id="checkout-form" class="checkout-grid">
+        <!-- Delivery and Payment Forms -->
+        <div>
+          <!-- Delivery Details -->
+          <div class="checkout-section-card">
+            <h3 class="checkout-section-title">
+              <span class="material-symbols-outlined">location_on</span>
+              <span data-translate="delivery_details">Delivery Details</span>
+            </h3>
+            
+            <div class="form-group">
+              <label class="form-label" for="checkout-fullname" data-translate="fullname">Full Name</label>
+              <input class="form-control" type="text" id="checkout-fullname" required placeholder="Full Name">
+            </div>
+            
+            <div class="form-group">
+              <label class="form-label" for="checkout-address" data-translate="address">Delivery Address</label>
+              <input class="form-control" type="text" id="checkout-address" required placeholder="Street address, City">
+            </div>
+            
+            <div class="form-row">
+              <div class="form-group">
+                <label class="form-label" for="checkout-phone" data-translate="phone">Phone Number</label>
+                <input class="form-control" type="tel" id="checkout-phone" required placeholder="Phone Number">
+              </div>
+              <div class="form-group">
+                <label class="form-label" for="checkout-pincode" data-translate="pincode">Pincode</label>
+                <input class="form-control" type="text" id="checkout-pincode" required placeholder="Pincode">
+              </div>
+            </div>
+          </div>
+
+          <!-- Payment Methods -->
+          <div class="checkout-section-card">
+            <h3 class="checkout-section-title">
+              <span class="material-symbols-outlined">account_balance_wallet</span>
+              <span data-translate="payment_method">Payment Method</span>
+            </h3>
+            
+            <div class="payment-methods">
+              <label class="payment-method-item">
+                <input type="radio" name="payment" value="cod" checked>
+                <span data-translate="payment_cod">Cash on Delivery</span>
+              </label>
+              <label class="payment-method-item">
+                <input type="radio" name="payment" value="upi">
+                <span data-translate="payment_upi">UPI / NetBanking</span>
+              </label>
+              <label class="payment-method-item">
+                <input type="radio" name="payment" value="card">
+                <span data-translate="payment_card">Credit / Debit Card</span>
+              </label>
+            </div>
+          </div>
+        </div>
+
+        <!-- Order Summary panel -->
+        <div>
+          <div class="checkout-section-card">
+            <h3 class="checkout-section-title">
+              <span class="material-symbols-outlined">receipt_long</span>
+              <span data-translate="order_summary">Order Summary</span>
+            </h3>
+            
+            <div id="checkout-items-list" style="margin-bottom: 20px;">
+              <!-- Dynamic order list from JS -->
+            </div>
+            
+            <div id="checkout-summary-prices" style="margin-bottom: 24px;">
+              <!-- Price subtotal/total calculation -->
+            </div>
+            
+            <button class="btn btn-primary btn-large" type="submit" style="width: 100%; border-radius: var(--border-radius-sm);" data-translate="confirm_order_btn">
+              Confirm Order
+            </button>
+          </div>
+        </div>
+      </form>
+    </div>
+
+
+    <!-- ==================== VIEW 5: SUCCESS CONFIRMATION ==================== -->
+    <div id="view-success" class="view-section">
+      <div class="success-card">
+        <div class="success-icon">✓</div>
+        <h1 data-translate="order_success">Order Confirmed!</h1>
+        <p style="color: var(--on-surface-variant);" data-translate="order_success_sub">Thank you for supporting handloom weavers. Your order is being hand-packaged.</p>
+        <button class="btn btn-primary btn-large" style="margin-top: 10px; border-radius: var(--border-radius-sm);" onclick="navigateTo('home')" data-translate="back_home">
+          Back to Home
+        </button>
+      </div>
+    </div>
+
+  </main>
+
+  <!-- Mobile Bottom Navigation Bar -->
+  <nav class="bottom-nav">
+    <a class="bottom-nav-item active" data-view="home" href="#">
+      <span class="material-symbols-outlined">home</span>
+      <span style="font-size:9px;" data-translate="home">Home</span>
+    </a>
+    <a class="bottom-nav-item" data-view="orders" href="#">
+      <span class="material-symbols-outlined">shopping_bag</span>
+      <span style="font-size:9px;" data-translate="orders">Orders</span>
+    </a>
+    <a class="bottom-nav-item" data-view="weavers" href="#">
+      <span class="material-symbols-outlined">person_pin_circle</span>
+      <span style="font-size:9px;" data-translate="weavers">Weavers</span>
+    </a>
+    <a class="bottom-nav-item" data-view="cart" href="#">
+      <span class="material-symbols-outlined">shopping_cart</span>
+      <span style="font-size:9px;" data-translate="cart">Cart</span>
+    </a>
+  </nav>
+
+  <!-- Floating Customization Control Widget for testing -->
+  <div class="control-widget">
+    <div id="control-panel" class="control-panel">
+      <div class="control-panel-title">Customizer Panel</div>
+      
+      <!-- Theme Switcher -->
+      <div class="form-group" style="margin-bottom:8px;">
+        <label class="form-label" style="font-size:0.7rem; margin-bottom:4px;">App Theme</label>
+        <select class="control-select" onchange="selectTheme(this.value)">
+          <option value="neydhal" selected>Neydhal (Light Mode)</option>
+          <option value="noolava">Noolava (Dark Mode)</option>
+          <option value="artisanal">Artisanal (Editorial Serif)</option>
+        </select>
+      </div>
+      
+      <!-- Language Switcher -->
+      <div class="form-group" style="margin-bottom:0;">
+        <label class="form-label" style="font-size:0.7rem; margin-bottom:4px;">Language</label>
+        <select class="control-select" onchange="selectLanguage(this.value)">
+          <option value="en" selected>English</option>
+          <option value="ta">தமிழ் (Tamil)</option>
+        </select>
+      </div>
+    </div>
+    
+    <button class="control-toggle" onclick="toggleControlPanel()">
+      <span class="material-symbols-outlined" style="font-size: 28px;">settings</span>
+    </button>
+  </div>
+
+  <!-- Sticky Actions Bar for mobile (Active only on Product Details page) -->
+  <div id="product-sticky-footer" class="sticky-footer">
+    <!-- Rendered dynamically by JS -->
+  </div>
+
+  <!-- Main JavaScript bundle -->
+  <script src="./app.js"></script>
+</body>
+</html>

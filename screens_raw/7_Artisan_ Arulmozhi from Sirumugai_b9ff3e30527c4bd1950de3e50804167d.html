@@ -1,0 +1,314 @@
+<!DOCTYPE html>
+
+<html class="dark" lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Noolava - Weaver Profile</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<script id="tailwind-config">
+  tailwind.config = {
+    darkMode: "class",
+    theme: {
+      extend: {
+        "colors": {
+                "on-tertiary-fixed-variant": "#45474a",
+                "on-secondary": "#303130",
+                "on-error": "#690005",
+                "primary-fixed": "#ffe088",
+                "outline-variant": "#4d4635",
+                "surface-container-lowest": "#0e0e0e",
+                "secondary-fixed": "#e3e2e0",
+                "surface-container-low": "#1c1b1b",
+                "on-error-container": "#ffdad6",
+                "inverse-on-surface": "#313030",
+                "on-primary": "#3c2f00",
+                "background": "#131313",
+                "primary-fixed-dim": "#e9c349",
+                "primary": "#f2ca50",
+                "on-background": "#e5e2e1",
+                "on-tertiary": "#2e3034",
+                "on-secondary-container": "#b5b5b3",
+                "tertiary-fixed-dim": "#c5c6ca",
+                "surface-container-highest": "#353535",
+                "on-secondary-fixed-variant": "#464746",
+                "tertiary-fixed": "#e2e2e6",
+                "on-surface-variant": "#d0c5af",
+                "surface-dim": "#131313",
+                "on-primary-container": "#554300",
+                "surface": "#131313",
+                "primary-container": "#d4af37",
+                "surface-bright": "#393939",
+                "surface-container-high": "#2a2a2a",
+                "on-tertiary-container": "#434549",
+                "on-tertiary-fixed": "#1a1c1f",
+                "on-surface": "#e5e2e1",
+                "secondary-container": "#464746",
+                "inverse-surface": "#e5e2e1",
+                "secondary-fixed-dim": "#c7c6c4",
+                "outline": "#99907c",
+                "on-primary-fixed-variant": "#574500",
+                "surface-tint": "#e9c349",
+                "secondary": "#c7c6c4",
+                "on-primary-fixed": "#241a00",
+                "inverse-primary": "#735c00",
+                "tertiary": "#ceced3",
+                "error": "#ffb4ab",
+                "on-secondary-fixed": "#1b1c1b",
+                "error-container": "#93000a",
+                "tertiary-container": "#b2b3b7",
+                "surface-variant": "#353535",
+                "surface-container": "#20201f"
+        },
+        "borderRadius": {
+                "DEFAULT": "0.125rem",
+                "lg": "0.25rem",
+                "xl": "0.5rem",
+                "full": "0.75rem"
+        },
+        "spacing": {
+                "container-padding": "24px",
+                "gutter": "16px",
+                "base": "8px",
+                "section-gap": "64px"
+        },
+        "fontFamily": {
+                "display-lg": [
+                        "Inter"
+                ],
+                "label-sm": [
+                        "Inter"
+                ],
+                "headline-lg-mobile": [
+                        "Inter"
+                ],
+                "body-md": [
+                        "Inter"
+                ],
+                "headline-lg": [
+                        "Inter"
+                ]
+        },
+        "fontSize": {
+                "display-lg": [
+                        "48px",
+                        {
+                                "lineHeight": "56px",
+                                "letterSpacing": "-0.02em",
+                                "fontWeight": "700"
+                        }
+                ],
+                "label-sm": [
+                        "12px",
+                        {
+                                "lineHeight": "16px",
+                                "letterSpacing": "0.05em",
+                                "fontWeight": "600"
+                        }
+                ],
+                "headline-lg-mobile": [
+                        "24px",
+                        {
+                                "lineHeight": "32px",
+                                "letterSpacing": "-0.01em",
+                                "fontWeight": "600"
+                        }
+                ],
+                "body-md": [
+                        "16px",
+                        {
+                                "lineHeight": "24px",
+                                "letterSpacing": "0",
+                                "fontWeight": "400"
+                        }
+                ],
+                "headline-lg": [
+                        "32px",
+                        {
+                                "lineHeight": "40px",
+                                "letterSpacing": "-0.01em",
+                                "fontWeight": "600"
+                        }
+                ]
+        }
+},
+    },
+  }
+</script>
+<style>
+        
+        /* Ensure specific icons have fill weight if needed */
+        .material-symbols-outlined[data-weight="fill"] {
+            font-variation-settings: 'FILL' 1;
+        }
+    </style>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background min-h-screen font-body-md text-body-md pb-24 md:pb-0">
+<!-- TopAppBar (Web & Mobile Contextual) -->
+<header class="bg-surface dark:bg-on-background font-headline-lg-mobile text-headline-lg-mobile docked full-width top-0 border-b border-outline-variant dark:border-outline flat no shadows flex justify-between items-center w-full px-gutter h-16 sticky z-40">
+<div class="flex items-center gap-4">
+<button class="text-primary dark:text-primary-fixed-dim hover:bg-surface-container-low transition-colors rounded-full p-2 flex items-center justify-center opacity-100 hover:opacity-80 active:scale-95">
+<span class="material-symbols-outlined" data-icon="arrow_back">arrow_back</span>
+</button>
+<span class="font-display-lg-mobile text-display-lg-mobile text-primary dark:text-primary-fixed-dim tracking-tight">Noolava</span>
+</div>
+<!-- Desktop Nav (Hidden on Mobile) -->
+<nav class="hidden md:flex items-center gap-gutter">
+<a class="text-on-surface-variant hover:text-primary transition-colors font-label-sm text-label-sm" href="#">Home</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-label-sm text-label-sm" href="#">Orders</a>
+<a class="text-primary font-bold hover:text-primary transition-colors font-label-sm text-label-sm" href="#">Weavers</a>
+<a class="text-on-surface-variant hover:text-primary transition-colors font-label-sm text-label-sm" href="#">Cart</a>
+</nav>
+<div class="flex items-center gap-4">
+<button class="text-primary dark:text-primary-fixed-dim hover:bg-surface-container-low transition-colors rounded-full p-2 flex items-center justify-center opacity-100 hover:opacity-80 active:scale-95">
+<span class="material-symbols-outlined" data-icon="language">language</span>
+</button>
+<button class="text-primary dark:text-primary-fixed-dim hover:bg-surface-container-low transition-colors rounded-full p-2 flex items-center justify-center opacity-100 hover:opacity-80 active:scale-95">
+<span class="material-symbols-outlined" data-icon="account_circle">account_circle</span>
+</button>
+</div>
+</header>
+<main class="max-w-[1280px] mx-auto px-4 md:px-[80px] py-[48px]">
+<!-- Hero Section -->
+<section class="grid grid-cols-1 md:grid-cols-12 gap-gutter mb-[48px]">
+<div class="md:col-span-7 rounded-xl overflow-hidden relative min-h-[400px]">
+<img class="absolute inset-0 w-full h-full object-cover" data-alt="A dignified, professional portrait of a female master weaver, Arulmozhi, seated at an intricate traditional wooden handloom in Tamil Nadu. The lighting is soft, warm, and natural, highlighting the rich textures of the maroon and gold Kanchipuram silk thread she is handling. The environment feels authentic, heritage-rich, and artisanal, reflecting a high-end, culturally deeply rooted aesthetic suitable for a premium marketplace. Minimalist background focus." src="https://lh3.googleusercontent.com/aida-public/AB6AXuAiOJzj42D9hpaNFmNjtQHpBTVCd7oFg5PYeRKVPZul_zrOJ987DB1xxPTuSdISwoJpL0mX6qzNEU4WDZAwxFO9vNkdf666UTVBX4-w9oAgyUK-5kWuvEmfgBRpD6Zj6yWpULU7N4GEZVKslgZ6sfs4RDNeG2d18afYGwYcPvXseZfH-YU0o_hyXBY1icWmoCV2R8usW4rZJ8kUPCc_YFqThEBqeGJOI7hOM0vubF9BTnYVPzYAa4t6zWvRT9MVlz_D-AlEei93Lpg"/>
+<div class="absolute inset-0 bg-gradient-to-t from-black/60 to-transparent flex flex-col justify-end p-gutter">
+<h1 class="font-display-lg-mobile md:font-display-lg text-display-lg-mobile md:text-display-lg text-white mb-2">Arulmozhi</h1>
+<p class="font-body-md text-body-md text-surface-container-low flex items-center gap-2">
+<span class="material-symbols-outlined" data-icon="location_on" data-weight="fill">location_on</span>
+                        Sirumugai, Coimbatore district
+                    </p>
+</div>
+</div>
+<div class="md:col-span-5 flex flex-col justify-center bg-surface-container-lowest p-gutter rounded-xl border border-outline-variant/30 shadow-[0px_10px_30px_rgba(128,0,32,0.02)] relative">
+<div class="absolute top-0 left-0 w-full h-1 bg-secondary-fixed-dim rounded-t-xl"></div>
+<div class="inline-flex items-center gap-2 bg-surface-container px-4 py-2 rounded-full w-fit mb-6 border border-outline-variant/50">
+<span class="material-symbols-outlined text-primary text-sm" data-icon="workspace_premium" data-weight="fill">workspace_premium</span>
+<span class="font-label-sm text-label-sm text-primary">Master Weaver</span>
+</div>
+<h2 class="font-headline-lg text-headline-lg text-on-background mb-4">4th Generation Craftsmanship</h2>
+<p class="font-body-md text-body-md text-on-surface-variant mb-8 leading-relaxed">
+                    Arulmozhi carries forward a century-old family legacy in handloom weaving. Specializing in intricate Korvai borders and pure Kanjivaram silk, her work represents the pinnacle of traditional South Indian textile artistry, weaving stories into every thread.
+                </p>
+<div class="grid grid-cols-2 gap-4 mb-8">
+<div class="bg-surface-container-low p-4 rounded-lg border border-outline-variant/20">
+<div class="font-headline-lg-mobile text-headline-lg-mobile text-primary mb-1">25+</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Years Exp.</div>
+</div>
+<div class="bg-surface-container-low p-4 rounded-lg border border-outline-variant/20">
+<div class="font-headline-lg-mobile text-headline-lg-mobile text-primary mb-1">Kanjivaram</div>
+<div class="font-label-sm text-label-sm text-on-surface-variant uppercase tracking-wider">Specialty</div>
+</div>
+</div>
+<button class="w-full bg-primary text-on-primary font-label-sm text-label-sm py-4 px-6 rounded-lg hover:bg-primary-container hover:text-on-primary-container transition-colors flex justify-center items-center gap-2">
+<span class="material-symbols-outlined" data-icon="chat">chat</span>
+                    Message Arulmozhi
+                </button>
+</div>
+</section>
+<!-- Divider -->
+<div class="w-full h-2 mb-[48px] opacity-50 bg-secondary-fixed-dim"></div>
+<!-- Video & Process Section -->
+<section class="mb-[48px]">
+<div class="flex flex-col md:flex-row justify-between items-end mb-8 gap-4">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-on-background mb-2">The Process</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Witness the rhythm of the loom.</p>
+</div>
+</div>
+<div class="relative rounded-xl overflow-hidden bg-tertiary aspect-video border border-outline-variant/20 flex items-center justify-center group cursor-pointer shadow-[0px_10px_30px_rgba(128,0,32,0.08)]">
+<img class="absolute inset-0 w-full h-full object-cover opacity-80 group-hover:opacity-60 transition-opacity duration-300" data-alt="A cinematic, high-quality still frame of a video showing a close-up of intricate handloom weaving. The focus is on the golden Zari threads intertwining with deep maroon silk. The lighting is dramatic, warm, and atmospheric, evoking the dusty, sunlit environment of a traditional weaver's workshop in Tamil Nadu. Premium, artisanal aesthetic." src="https://lh3.googleusercontent.com/aida-public/AB6AXuD3xBOhhnYO3xYJw6GXlpmF7Yby1Pc3XGVzNSM5KRQQkA9lXLmqu23iu0DpluZl2Jfrn2pct6y4xDB2sX-Gufv_AEeusejeTwD_prhoguGWiYbChESqrtN3cLBtX9yf73OR-gHtpLFjSPIQ3RJ4k8yGV3Y6iFMQ8qJLT0wsA69Iae8Qs3JfJjyg72OFmUTQ2uCgV4oT_my0sFRoAI3wZZyUczbNnSzgKb9g2A-7ZhGXRzsn5SHDn3_l_Ojh8JNLi8b_xXbDxgSjzpc"/>
+<div class="relative z-10 w-20 h-20 bg-primary/90 text-on-primary rounded-full flex items-center justify-center backdrop-blur-sm group-hover:scale-110 transition-transform duration-300 shadow-lg">
+<span class="material-symbols-outlined text-4xl ml-1" data-icon="play_arrow" data-weight="fill">play_arrow</span>
+</div>
+<div class="absolute bottom-6 left-6 z-10">
+<h3 class="font-headline-lg-mobile text-headline-lg-mobile text-white mb-1">Watch Arulmozhi Weave</h3>
+<p class="font-label-sm text-label-sm text-white/80">3:45 • Mini Documentary</p>
+</div>
+</div>
+</section>
+<!-- Portfolio Grid -->
+<section>
+<div class="flex flex-col md:flex-row justify-between items-end mb-8 gap-4">
+<div>
+<h2 class="font-headline-lg text-headline-lg text-on-background mb-2">Current Works</h2>
+<p class="font-body-md text-body-md text-on-surface-variant">Available for commissioning or direct purchase.</p>
+</div>
+<button class="border-2 border-secondary-fixed-dim text-on-surface font-label-sm text-label-sm py-2 px-6 rounded-lg hover:bg-surface-container-low transition-colors">
+                    View All
+                </button>
+</div>
+<div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-gutter">
+<!-- Item 1 -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden border border-outline-variant/30 hover:border-secondary-fixed-dim transition-colors group">
+<div class="aspect-[4/5] relative overflow-hidden bg-surface-variant">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A highly detailed, studio-lit photograph of a folded premium Kanchipuram silk sari. The fabric is a deep, rich maroon (Kanjivaram Maroon) with a wide, elaborate gold Zari border featuring traditional peacock motifs. The texture of the silk and the metallic sheen of the gold thread are crisp and tactile. Minimalist soft cream background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuBvgb_HCgHvJ7sQFnbq_15SxUEuaQ8a6mE-wLRnQY2wsW-xf-pXlEGvfUooUaztS_emnifn_SWsznWt4wS82wpIIH50bo6JypuxQPxDK7S_zd0PomxfZY5mbQyvkMQrTJqAzkP-qYNMCHfa9Qxre33oJ_Q9y2JoygbTBcO888y0V2ixISC594qX6oH9s0K3LugT6pLOdjpIPu43s8bdkjvEcWPUmGE85pPf8ekNuAL1AdWt15EZUu2b3lmm86XojnH4_c98vdxn6sY"/>
+<div class="absolute top-4 right-4 bg-surface-container-lowest/90 backdrop-blur-sm px-3 py-1 rounded-full border border-secondary-fixed-dim/50">
+<span class="font-label-sm text-label-sm text-primary font-bold">₹24,500</span>
+</div>
+</div>
+<div class="p-4 relative">
+<div class="absolute top-0 left-0 w-full h-1 bg-secondary-fixed-dim opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<h3 class="font-headline-lg-mobile text-headline-lg-mobile text-on-background mb-1">Arakku Bridal Korvai</h3>
+<p class="font-label-sm text-label-sm text-on-surface-variant mb-4">Pure Mulberry Silk • 12 Days to weave</p>
+<button class="w-full bg-surface-container text-primary font-label-sm text-label-sm py-2 rounded border border-outline-variant/50 hover:bg-primary hover:text-on-primary transition-colors">
+                            View Details
+                        </button>
+</div>
+</div>
+<!-- Item 2 -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden border border-outline-variant/30 hover:border-secondary-fixed-dim transition-colors group">
+<div class="aspect-[4/5] relative overflow-hidden bg-surface-variant">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A highly detailed, studio-lit photograph of a folded premium Kanchipuram silk sari. The fabric is a vibrant mustard yellow with a contrasting dark green border woven with intricate gold Zari geometric patterns. The texture of the silk and the metallic sheen of the gold thread are crisp and tactile. Minimalist soft cream background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuDe7Byn6fnoCRke7BmYifHibKfRfqYS9myv-wH2tgzqeFctVias9J04D9p84Bnyk0vamxl_69sGnEwpDspLg8eTJP5mhYZfeDZQddXDtnWAvvi2ACSC2G_TiLde7gsZMvyi7tQlea3fwmXTLN2YyGA-PaBHjrdSLoN-IVeDyYMaeE82XXJxJPfAc6Z2sRxxKE1hAXk9BTTH8fIW_aXgtG2_79Sj3sug2wLa1FD0x6EKrTmbPDv-sr-Df5yoAxrDp3GCphba_C0ygOk"/>
+<div class="absolute top-4 right-4 bg-surface-container-lowest/90 backdrop-blur-sm px-3 py-1 rounded-full border border-secondary-fixed-dim/50">
+<span class="font-label-sm text-label-sm text-primary font-bold">₹18,200</span>
+</div>
+</div>
+<div class="p-4 relative">
+<div class="absolute top-0 left-0 w-full h-1 bg-secondary-fixed-dim opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<h3 class="font-headline-lg-mobile text-headline-lg-mobile text-on-background mb-1">Mustard Contrast Border</h3>
+<p class="font-label-sm text-label-sm text-on-surface-variant mb-4">Pure Mulberry Silk • 8 Days to weave</p>
+<button class="w-full bg-surface-container text-primary font-label-sm text-label-sm py-2 rounded border border-outline-variant/50 hover:bg-primary hover:text-on-primary transition-colors">
+                            View Details
+                        </button>
+</div>
+</div>
+<!-- Item 3 -->
+<div class="bg-surface-container-lowest rounded-xl overflow-hidden border border-outline-variant/30 hover:border-secondary-fixed-dim transition-colors group">
+<div class="aspect-[4/5] relative overflow-hidden bg-surface-variant">
+<img class="w-full h-full object-cover group-hover:scale-105 transition-transform duration-500" data-alt="A highly detailed, studio-lit photograph of a folded premium Kanchipuram silk sari. The fabric is a deep, majestic indigo blue with a silver and gold Zari tissue border featuring traditional temple designs. The texture of the silk and the metallic sheen of the gold thread are crisp and tactile. Minimalist soft cream background." src="https://lh3.googleusercontent.com/aida-public/AB6AXuCILrC0mqjsRys1mB_dq-HvFH0lcuW2KHWGa1JlHmjstyhF3PktGyz0jG4lGXjLp7Kr9raf6IfJYIlrWLTFAHA2znriWV3poP4uuf0ioAJMnfvhTIER0zMW_o8JXLGPyVQW_paglaNQKWX4MkN-oTMtGA77viBARxKvhlMCSVc_dJ5frXeE15JnlcTlf9o9B2wZU5fhdxYXTpe14Pv-MAY3Ve7CILDk87JekOvouUFJLSU-oX4UXfxj-2Bo3_ScmTl55xx3FNWOt1g"/>
+<div class="absolute top-4 right-4 bg-surface-container-lowest/90 backdrop-blur-sm px-3 py-1 rounded-full border border-secondary-fixed-dim/50">
+<span class="font-label-sm text-label-sm text-primary font-bold">₹32,000</span>
+</div>
+</div>
+<div class="p-4 relative">
+<div class="absolute top-0 left-0 w-full h-1 bg-secondary-fixed-dim opacity-0 group-hover:opacity-100 transition-opacity"></div>
+<h3 class="font-headline-lg-mobile text-headline-lg-mobile text-on-background mb-1">Indigo Temple Tissue</h3>
+<p class="font-label-sm text-label-sm text-on-surface-variant mb-4">Silk &amp; Zari Blend • 18 Days to weave</p>
+<button class="w-full bg-surface-container text-primary font-label-sm text-label-sm py-2 rounded border border-outline-variant/50 hover:bg-primary hover:text-on-primary transition-colors">
+                            View Details
+                        </button>
+</div>
+</div>
+</div>
+</section>
+</main>
+<!-- BottomNavBar (Mobile Only) -->
+<nav class="md:hidden bg-surface-container dark:bg-inverse-surface fixed bottom-0 w-full z-50 rounded-t-xl border-t border-secondary-container/20 shadow-[0px_-4px_10px_rgba(128,0,32,0.05)] fixed bottom-0 left-0 w-full z-50 flex justify-around items-center px-4 py-2">
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-all w-16 group" href="#">
+<span class="material-symbols-outlined mb-1 group-hover:scale-90 duration-150" data-icon="home">home</span>
+<span class="font-label-sm text-[10px] leading-tight">Home</span>
+</a>
+<a class="flex flex-col items-center justify-center text-on-surface-variant hover:text-primary transition-all w-16 group" href="#">
+<span class="material-symbols-outlined mb-1 group-hover:scale-90 duration-150" data-icon="shopping_bag">shopping_bag</span>
+<span class="font-label-sm text-[10px] leading-tight">Orders</span>
+</a>
+<a class="flex flex-col items-center justify-center bg-primary-container text-on-primary-container rounded-full px-4 py-1 hover:text-primary transition-all w-16 group scale-90 duration-150" href="#">
+<span class="material-symbols-outlined mb-1"

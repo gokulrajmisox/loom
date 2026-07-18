@@ -1,0 +1,323 @@
+<!DOCTYPE html>
+
+<html lang="en"><head>
+<meta charset="utf-8"/>
+<meta content="width=device-width, initial-scale=1.0" name="viewport"/>
+<title>Checkout - Neydhal</title>
+<script src="https://cdn.tailwindcss.com?plugins=forms,container-queries"></script>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&amp;display=swap" rel="stylesheet"/>
+<link href="https://fonts.googleapis.com/css2?family=Material+Symbols+Outlined:wght,FILL@100..700,0..1&amp;display=swap" rel="stylesheet"/>
+<style>
+        body { font-family: 'Inter', sans-serif; }
+        .material-symbols-outlined { font-family: 'Material Symbols Outlined'; }
+        
+        /* Subtle Heritage Pattern Background for specific accents */
+        .pattern-zari-accent {
+            background-image: repeating-linear-gradient(45deg, transparent, transparent 2px, rgba(233, 195, 73, 0.2) 2px, rgba(233, 195, 73, 0.2) 4px);
+        }
+    </style>
+<script id="tailwind-config">
+      tailwind.config = {
+        darkMode: "class",
+        theme: {
+          extend: {
+            "colors": {
+                    "secondary-fixed-dim": "#e9c349",
+                    "inverse-surface": "#303030",
+                    "secondary-container": "#fed65b",
+                    "secondary": "#735c00",
+                    "surface-container-lowest": "#ffffff",
+                    "on-surface-variant": "#584141",
+                    "on-primary-container": "#ff828a",
+                    "surface-container": "#f0eded",
+                    "surface-container-low": "#f6f3f2",
+                    "on-primary": "#ffffff",
+                    "on-tertiary-container": "#a9a8a4",
+                    "surface-variant": "#e4e2e1",
+                    "primary-fixed-dim": "#ffb3b5",
+                    "inverse-on-surface": "#f3f0f0",
+                    "on-secondary-container": "#745c00",
+                    "surface-bright": "#fbf9f8",
+                    "outline": "#8c7071",
+                    "on-tertiary": "#ffffff",
+                    "surface-tint": "#af2b3e",
+                    "secondary-fixed": "#ffe088",
+                    "surface-container-high": "#eae8e7",
+                    "surface": "#fbf9f8",
+                    "outline-variant": "#e0bfbf",
+                    "on-background": "#1b1c1c",
+                    "surface-dim": "#dcd9d9",
+                    "on-error": "#ffffff",
+                    "surface-container-highest": "#e4e2e1",
+                    "tertiary": "#272725",
+                    "tertiary-fixed": "#e4e2de",
+                    "tertiary-fixed-dim": "#c8c6c3",
+                    "inverse-primary": "#ffb3b5",
+                    "on-tertiary-fixed": "#1b1c1a",
+                    "primary-fixed": "#ffdada",
+                    "primary": "#570013",
+                    "on-primary-fixed-variant": "#8e0f28",
+                    "on-secondary-fixed-variant": "#574500",
+                    "on-secondary": "#ffffff",
+                    "on-tertiary-fixed-variant": "#474744",
+                    "on-surface": "#1b1c1c",
+                    "on-secondary-fixed": "#241a00",
+                    "error": "#ba1a1a",
+                    "primary-container": "#800020",
+                    "on-error-container": "#93000a",
+                    "tertiary-container": "#3d3d3b",
+                    "error-container": "#ffdad6",
+                    "on-primary-fixed": "#40000b",
+                    "background": "#fbf9f8"
+            },
+            "borderRadius": {
+                    "DEFAULT": "0.25rem",
+                    "lg": "0.5rem",
+                    "xl": "0.75rem",
+                    "full": "9999px"
+            },
+            "spacing": {
+                    "xs": "4px",
+                    "md": "24px",
+                    "sm": "12px",
+                    "gutter": "24px",
+                    "xl": "80px",
+                    "base": "8px",
+                    "container-max": "1280px",
+                    "lg": "48px"
+            },
+            "fontFamily": {
+                    "caption": ["Inter"],
+                    "headline-sm": ["Inter"],
+                    "display-lg": ["Inter"],
+                    "display-lg-mobile": ["Inter"],
+                    "body-md": ["Inter"],
+                    "body-lg": ["Inter"],
+                    "headline-md": ["Inter"],
+                    "label-md": ["Inter"]
+            },
+            "fontSize": {
+                    "caption": ["12px", {"lineHeight": "16px", "fontWeight": "400"}],
+                    "headline-sm": ["24px", {"lineHeight": "32px", "fontWeight": "600"}],
+                    "display-lg": ["48px", {"lineHeight": "56px", "letterSpacing": "-0.02em", "fontWeight": "700"}],
+                    "display-lg-mobile": ["36px", {"lineHeight": "44px", "fontWeight": "700"}],
+                    "body-md": ["16px", {"lineHeight": "24px", "fontWeight": "400"}],
+                    "body-lg": ["18px", {"lineHeight": "28px", "fontWeight": "400"}],
+                    "headline-md": ["32px", {"lineHeight": "40px", "fontWeight": "600"}],
+                    "label-md": ["14px", {"lineHeight": "20px", "letterSpacing": "0.01em", "fontWeight": "600"}]
+            }
+          }
+        }
+      }
+    </script>
+<style>
+    body {
+      min-height: max(884px, 100dvh);
+    }
+  </style>
+  </head>
+<body class="bg-background text-on-background font-body-md min-h-screen flex flex-col pb-24 md:pb-8 selection:bg-primary-container selection:text-on-primary-container">
+<!-- Transactional Header (Suppressed global navigation to focus on checkout task) -->
+<header class="flex items-center px-4 py-4 md:px-xl border-b border-outline-variant/30 sticky top-0 bg-surface/95 backdrop-blur-md z-40 transition-shadow">
+<button class="p-2 -ml-2 rounded-full text-on-surface-variant hover:bg-surface-container-low hover:text-primary transition-colors focus:outline-none focus:ring-2 focus:ring-primary focus:ring-offset-2 focus:ring-offset-surface">
+<span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 0;">arrow_back</span>
+</button>
+<div class="ml-4 flex-1">
+<h1 class="font-headline-md text-headline-md text-primary tracking-tight">Checkout</h1>
+</div>
+<div class="hidden md:flex items-center gap-2 text-on-surface-variant font-label-md text-label-md">
+<span class="material-symbols-outlined text-[18px]">lock</span>
+            Secure Payment
+        </div>
+</header>
+<main class="flex-1 w-full max-w-container-max mx-auto px-4 md:px-gutter lg:px-xl py-6 md:py-8 grid grid-cols-1 lg:grid-cols-12 gap-8 lg:gap-12">
+<!-- Left Column: Details & Payment -->
+<div class="col-span-1 lg:col-span-7 space-y-8">
+<!-- Address Section (Contextual) -->
+<section class="bg-surface-container-lowest rounded-xl border border-outline-variant/30 p-6 md:p-8 shadow-[0px_10px_30px_rgba(128,0,32,0.02)] relative overflow-hidden transition-all hover:shadow-[0px_10px_30px_rgba(128,0,32,0.05)] group">
+<div class="absolute top-0 left-0 right-0 h-1 bg-secondary-fixed-dim opacity-40 pattern-zari-accent"></div>
+<div class="flex justify-between items-start mb-6 border-b border-outline-variant/20 pb-4">
+<h2 class="font-headline-sm text-headline-sm text-on-surface flex items-center gap-3">
+<span class="material-symbols-outlined text-primary bg-primary-container/10 p-2 rounded-full" style="font-variation-settings: 'FILL' 1;">location_on</span>
+                        Delivery Details
+                    </h2>
+<button class="text-primary font-label-md text-label-md hover:bg-primary-container/10 px-3 py-1.5 rounded-full transition-colors border border-transparent hover:border-primary/20">Change</button>
+</div>
+<div class="font-body-lg text-body-lg text-on-surface-variant leading-relaxed pl-2 md:pl-12">
+<p class="font-bold text-on-surface text-xl mb-1">Lakshmi Narayanan</p>
+<p>14, Silk Weaver Street,</p>
+<p>Kanchipuram, Tamil Nadu 631501</p>
+<p class="mt-4 text-on-surface flex items-center gap-2">
+<span class="material-symbols-outlined text-[18px] text-outline">call</span>
+                        +91 98765 43210
+                    </p>
+</div>
+</section>
+<!-- Payment Options Section (Core Requirement) -->
+<section class="bg-surface-container-lowest rounded-xl border border-secondary-container/40 p-6 md:p-8 shadow-[0px_10px_30px_rgba(128,0,32,0.04)] relative overflow-hidden">
+<!-- Zari Gold highlight for active core task -->
+<div class="absolute top-0 left-0 right-0 h-1.5 bg-secondary-fixed-dim"></div>
+<div class="mb-8 border-b border-outline-variant/20 pb-4">
+<h2 class="font-headline-sm text-headline-sm text-on-surface flex items-center gap-3">
+<span class="material-symbols-outlined text-primary bg-primary-container/10 p-2 rounded-full" style="font-variation-settings: 'FILL' 1;">account_balance_wallet</span>
+                        Payment Method
+                    </h2>
+<p class="font-body-md text-body-md text-on-surface-variant mt-2 pl-2 md:pl-12">All transactions are secure and encrypted.</p>
+</div>
+<div class="space-y-4 pl-0 md:pl-12" id="payment-options-container">
+<!-- UPI Option (Primary/Default) -->
+<label class="payment-label flex items-start p-5 rounded-xl border-2 border-primary bg-primary-container/5 cursor-pointer transition-all hover:bg-primary-container/10 relative overflow-hidden" data-method="upi">
+<div class="flex items-center h-7 pt-1">
+<input checked="" class="w-6 h-6 text-primary border-outline-variant focus:ring-primary focus:ring-offset-surface bg-surface-container-lowest" name="payment_method" type="radio" value="upi"/>
+</div>
+<div class="ml-4 flex-1">
+<span class="block font-headline-sm text-headline-sm text-on-surface mb-2">One-Tap UPI Payment</span>
+<span class="block font-body-lg text-body-lg text-on-surface-variant mb-4">Fast and secure payments via your installed UPI apps.</span>
+<!-- Logos Container -->
+<div class="flex flex-wrap gap-3 mt-2">
+<div class="h-10 px-4 rounded-lg bg-surface border border-outline-variant flex items-center justify-center font-label-md text-label-md text-on-surface-variant shadow-sm">
+<span class="material-symbols-outlined text-[18px] mr-1 text-primary">contactless</span> GPay
+                                </div>
+<div class="h-10 px-4 rounded-lg bg-surface border border-outline-variant flex items-center justify-center font-label-md text-label-md text-on-surface-variant shadow-sm">
+<span class="material-symbols-outlined text-[18px] mr-1 text-primary">contactless</span> PhonePe
+                                </div>
+<div class="h-10 px-4 rounded-lg bg-surface border border-outline-variant flex items-center justify-center font-label-md text-label-md text-on-surface-variant shadow-sm">
+<span class="material-symbols-outlined text-[18px] mr-1 text-primary">contactless</span> Paytm
+                                </div>
+</div>
+</div>
+<!-- Active Indicator Glow -->
+<div class="absolute right-0 top-0 bottom-0 w-1 bg-primary opacity-100 transition-opacity" id="upi-indicator"></div>
+</label>
+<!-- COD Option (Secondary) -->
+<label class="payment-label flex items-start p-5 rounded-xl border border-outline-variant/60 bg-surface cursor-pointer transition-all hover:border-outline hover:bg-surface-container-low opacity-80" data-method="cod">
+<div class="flex items-center h-7 pt-1">
+<input class="w-6 h-6 text-primary border-outline-variant focus:ring-primary focus:ring-offset-surface bg-surface-container-lowest" name="payment_method" type="radio" value="cod"/>
+</div>
+<div class="ml-4 flex-1">
+<div class="flex items-center justify-between mb-2">
+<span class="block font-headline-sm text-headline-sm text-on-surface">Cash on Delivery</span>
+<span class="material-symbols-outlined text-outline-variant" style="font-variation-settings: 'FILL' 0;">payments</span>
+</div>
+<span class="block font-body-lg text-body-lg text-primary mb-2 font-medium tracking-wide">பொருளைப் பெற்ற பின் பணம்</span>
+<span class="block font-body-lg text-body-lg text-on-surface-variant">Pay with cash or UPI when your order is delivered to your doorstep.</span>
+</div>
+<!-- Active Indicator Glow (Hidden by default) -->
+<div class="absolute right-0 top-0 bottom-0 w-1 bg-primary opacity-0 transition-opacity" id="cod-indicator"></div>
+</label>
+</div>
+</section>
+</div>
+<!-- Right Column: Order Summary (Sticky) -->
+<div class="col-span-1 lg:col-span-5 relative">
+<div class="sticky top-24 bg-surface-container-lowest rounded-xl border border-outline-variant/20 p-6 md:p-8 shadow-[0px_10px_30px_rgba(128,0,32,0.03)] flex flex-col h-full lg:h-auto">
+<h2 class="font-headline-sm text-headline-sm text-on-surface mb-6 border-b border-outline-variant/20 pb-4 flex items-center justify-between">
+                    Order Summary
+                    <span class="bg-surface-container-low text-on-surface-variant font-label-md px-3 py-1 rounded-full border border-outline-variant/30 text-sm">1 Item</span>
+</h2>
+<!-- Items list -->
+<div class="space-y-6 mb-8 flex-1">
+<!-- Simple Item Entry -->
+<div class="flex gap-5 items-start group">
+<div class="w-24 h-28 rounded-lg bg-surface-variant overflow-hidden shrink-0 border border-outline-variant/20 relative">
+<img class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-105" data-alt="A highly detailed close-up shot of a luxurious Kanchipuram silk sari folded elegantly. The fabric is a deep, rich Kanjivaram maroon, intricately woven with Zari gold thread forming a traditional Vanki geometric pattern along the border. The lighting is soft, warm, and directional, highlighting the lustrous texture, heavy drape, and premium quality of the authentic silk. The background is a clean, minimal soft cream surface." src="https://lh3.googleusercontent.com/aida-public/AB6AXuA89FzKcfoH-MbSVb20EHtxobnZDaiRTW57R8LQm8b-U1B-QoTyZGos0tu8OdKxzkrFKFZM55Z_XG4EFUrSm8bR2MuvzTmVRm8uNGpotpAMR5v9P8ovarApIohsSI0I8aQZfMtAC6TLiZccaGO5C-2r6jbI_hQftbzTZg_1GAKH_GJC4ontDE2oyo-qRep1jpRS8FXdwBYq3WN_fZn__NK96A5NTv8lhfQB-tUK2Gkr0Y9SoexvPNYPMabO0iNiU5X23dCSPjz2WvA"/>
+</div>
+<div class="flex-1 flex flex-col justify-between h-full py-1">
+<div>
+<h3 class="font-body-lg text-body-lg text-on-surface font-semibold line-clamp-2 leading-snug">Maroon Kanjivaram Silk Sari with Pure Zari Border</h3>
+<p class="font-body-md text-body-md text-on-surface-variant mt-2 flex items-center gap-1">
+<span class="material-symbols-outlined text-[16px]">inventory_2</span>
+                                    Qty: 1
+                                </p>
+</div>
+<div class="font-headline-sm text-headline-sm text-on-surface mt-2">
+                                ₹45,000
+                            </div>
+</div>
+</div>
+</div>
+<!-- Price Breakdown -->
+<div class="space-y-4 pt-6 border-t border-outline-variant/30 font-body-lg text-body-lg text-on-surface-variant">
+<div class="flex justify-between items-center">
+<span>Subtotal</span>
+<span class="text-on-surface">₹45,000</span>
+</div>
+<div class="flex justify-between items-center">
+<span>Heritage Packaging</span>
+<span class="text-on-surface">₹500</span>
+</div>
+<div class="flex justify-between items-center">
+<span>Insured Shipping</span>
+<span class="text-primary font-semibold flex items-center gap-1">
+<span class="material-symbols-outlined text-[18px]">local_shipping</span>
+                            Free
+                        </span>
+</div>
+</div>
+<div class="flex justify-between items-end pt-6 mt-6 border-t border-outline-variant/40">
+<span class="font-headline-sm text-headline-sm text-on-surface">Total</span>
+<span class="font-display-lg-mobile text-display-lg-mobile text-primary tracking-tight font-bold">₹45,500</span>
+</div>
+<!-- Desktop CTA -->
+<button class="hidden md:flex w-full mt-8 bg-primary text-on-primary font-display-lg-mobile text-[24px] py-5 rounded-xl items-center justify-center gap-3 hover:bg-on-primary-fixed-variant transition-all duration-300 shadow-[0_4px_14px_rgba(128,0,32,0.2)] hover:shadow-[0_6px_20px_rgba(128,0,32,0.3)] active:scale-[0.98]">
+                    Confirm Order
+                    <span class="material-symbols-outlined" style="font-variation-settings: 'FILL' 1;">arrow_forward</span>
+</button>
+<p class="hidden md:flex mt-4 text-center font-caption text-caption text-on-surface-variant items-center justify-center gap-1.5 opacity-80">
+<span class="material-symbols-outlined text-[14px]">verified_user</span> 
+                    100% Authentic Kanchipuram Silk guaranteed by Neydhal.
+                </p>
+</div>
+</div>
+</main>
+<!-- Mobile Sticky Footer CTA -->
+<div class="fixed bottom-0 left-0 right-0 bg-surface-container-lowest p-4 pb-6 border-t border-outline-variant/30 shadow-[0px_-10px_20px_rgba(128,0,32,0.05)] md:hidden z-50 flex items-center gap-4">
+<div class="flex-1">
+<p class="font-body-md text-body-md text-on-surface-variant">Total Amount</p>
+<p class="font-headline-md text-headline-md text-primary font-bold">₹45,500</p>
+</div>
+<button class="flex-1 bg-primary text-on-primary font-headline-sm text-headline-sm py-4 px-2 rounded-xl flex items-center justify-center gap-2 hover:bg-on-primary-fixed-variant transition-colors active:scale-95 shadow-md font-bold">
+            Confirm
+            <span class="material-symbols-outlined">chevron_right</span>
+</button>
+</div>
+<!-- Micro-interaction Script for Payment Selection -->
+<script>
+        document.addEventListener('DOMContentLoaded', () => {
+            const upiRadio = document.querySelector('input[value="upi"]');
+            const codRadio = document.querySelector('input[value="cod"]');
+            const upiContainer = upiRadio.closest('.payment-label');
+            const codContainer = codRadio.closest('.payment-label');
+            const upiIndicator = document.getElementById('upi-indicator');
+            const codIndicator = document.getElementById('cod-indicator');
+
+            function applyActiveState(container, indicator) {
+                container.classList.add('border-2', 'border-primary', 'bg-primary-container/5');
+                container.classList.remove('border', 'border-outline-variant/60', 'bg-surface', 'opacity-80');
+                indicator.classList.remove('opacity-0');
+                indicator.classList.add('opacity-100');
+            }
+
+            function applyInactiveState(container, indicator) {
+                container.classList.remove('border-2', 'border-primary', 'bg-primary-container/5');
+                container.classList.add('border', 'border-outline-variant/60', 'bg-surface', 'opacity-80');
+                indicator.classList.add('opacity-0');
+                indicator.classList.remove('opacity-100');
+            }
+
+            function updateStyles() {
+                if(upiRadio.checked) {
+                    applyActiveState(upiContainer, upiIndicator);
+                    applyInactiveState(codContainer, codIndicator);
+                } else {
+                    applyActiveState(codContainer, codIndicator);
+                    applyInactiveState(upiContainer, upiIndicator);
+                }
+            }
+
+            upiRadio.addEventListener('change', updateStyles);
+            codRadio.addEventListener('change', updateStyles);
+        });
+    </script>
+</body></html>
