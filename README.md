@@ -1,6 +1,11 @@
 # 🌾 Noolava (நூலவா)
 
 A lightweight, ultra-accessible web marketplace connecting traditional handloom weavers in Tamil Nadu directly with buyers. This repository contains the Noolava client prototype — a zero-dependency, semantic HTML/CSS/JavaScript front-end focusing on accessibility, bilingual support, and low-bandwidth performance.
+demo video 
+
+
+https://github.com/user-attachments/assets/413ca4af-c8a0-461b-b829-fcb4cd44f0c7
+
 
 Badges
 - Language: HTML • CSS • JavaScript
