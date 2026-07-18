@@ -48,5 +48,6 @@ Roadmap
 
 Contributing
 Please read CONTRIBUTING.md for development guidelines, code style, and PR process.
+
 ⚖️ License
 Distributed under the MIT License. Developed with absolute pride to empower the traditional weavers of Tamil Nadu. ❤️
